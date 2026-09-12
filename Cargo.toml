@@ -1,0 +1,77 @@
+[package]
+name = "bytelog"
+version = "0.1.0"
+edition = "2021"
+authors = ["ByteLog Contributors"]
+description = "Privacy-first, local-first computer usage analytics and performance monitoring tool"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/bytelog/bytelog"
+
+[profile.dev]
+incremental = false
+codegen-units = 1
+
+[profile.test]
+incremental = false
+codegen-units = 1
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+incremental = false
+
+[profile.release.build-override]
+opt-level = 0
+codegen-units = 1
+incremental = false
+
+[profile.dev.build-override]
+codegen-units = 1
+incremental = false
+
+[dependencies]
+sysinfo = "0.33"
+rusqlite = { version = "0.32", features = ["bundled", "chrono"] }
+ratatui = "0.29"
+crossterm = "0.28"
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+crossbeam-channel = "0.5"
+directories = "5.0"
+thiserror = "2.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+tracing-appender = "0.2"
+chrono = { version = "0.4", features = ["serde"] }
+ctrlc = "3.4"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = [
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_Foundation",
+    "Win32_System_Threading",
+    "Win32_System_ProcessStatus",
+    "Win32_System_Power",
+    "Win32_System_SystemInformation",
+    "Win32_Security"
+] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+core-foundation = "0.10"
+core-graphics = "0.24"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+x11rb = { version = "0.13", features = ["record", "screensaver"] }
+
+[dev-dependencies]
+proptest = "1.5"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "benchmarks"
+harness = false
