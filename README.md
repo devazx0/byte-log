@@ -1,4 +1,4 @@
-# ByteLog 📊
+# ByteLog
 
 **ByteLog** is an open-source, privacy-first, local-first computer usage analytics and performance monitoring tool written in native Rust.
 
@@ -29,11 +29,11 @@ Designed for software engineers, power users, and data-driven professionals, Byt
 
 ## Key Highlights
 
-- **🔒 Privacy Invariant:** Zero text logging, zero keystroke buffering, zero telemetry, and zero network calls. Typing analytics rely solely on volatile in-memory atomic counters.
-- **⚡ Ultra-Low Footprint:** Written in native Rust without heavy async runtimes. Uses $\le 0.5\%$ single-core CPU and $\le 20\text{ MB}$ RSS RAM.
-- **💾 Local Embedded SQLite (WAL Mode):** Queries from the CLI or TUI never block or compete with the background daemon writer.
-- **🖥️ Dual Interfaces:** Fast, scriptable CLI with JSON/CSV export support + rich interactive Terminal User Interface (TUI) powered by `ratatui`.
-- **🌐 Cross-Platform:** Native support for Windows 10/11, macOS 12+, and Linux (X11 & Wayland).
+- **Privacy Invariant:** Zero text logging, zero keystroke buffering, zero telemetry, and zero network calls. Typing analytics rely solely on volatile in-memory atomic counters.
+- **Ultra-Low Footprint:** Written in native Rust without heavy async runtimes. Uses $\le 0.5\%$ single-core CPU and $\le 20\text{ MB}$ RSS RAM.
+- **Local Embedded SQLite (WAL Mode):** Queries from the CLI or TUI never block or compete with the background daemon writer.
+- **Dual Interfaces:** Fast, scriptable CLI with JSON/CSV export support + rich interactive Terminal User Interface (TUI) powered by `ratatui`.
+- **Cross-Platform:** Native support for Windows 10/11, macOS 12+, and Linux (X11 & Wayland).
 
 ---
 
